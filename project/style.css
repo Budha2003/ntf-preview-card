@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  /* removes the horizontal bar in every screen size */
+}
+
+:root {
+  /* ### Primary */
+
+  --soft-blue: hsl(215, 51%, 70%);
+  --cyan: hsl(178, 100%, 50%);
+
+  /* ### Neutral */
+
+  --main-bg: hsl(217, 54%, 11%);
+  --card-bg: hsl(216, 50%, 16%);
+  --blue-line: hsl(215, 32%, 27%);
+  --white: hsl(0, 0%, 100%);
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  font-size: 18px;
+  background-color: var(--main-bg);
+  color: hsl(0, 0%, 100%, 65%);
+  /* the last value ie. 65% is the opacity of the color*/
+  padding: 1.25rem;
+}
+
+p {
+  font-weight: 300;
+}
+
+.container {
+  padding: 1.25rem;
+  /* border: solid 2px; */
+  background-color: var(--card-bg);
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.container .main-img {
+  position: relative;
+}
+
+.container .main-img div {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  /* height: 99%; or use calc property of css. Here subtracting 4px from the 100% */
+  height: calc(100% - 4px);
+  background-color: hsl(178, 100%, 50%, 75%);
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  /* transition of opacity property  */
+}
+.container .main-img div:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.container .main-img div img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container h2 {
+  color: var(--white);
+  margin: 1rem 0.5rem 0.5rem 0;
+}
+
+.container h2:hover {
+  color: var(--cyan);
+  cursor: pointer;
+}
+
+.container ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--blue-line);
+}
+
+.container ul li:first-child {
+  /* first child means selecting the first item from the element or in the element. They are sudo class name */
+  color: var(--cyan);
+}
+.container ul li {
+  display: flex;
+  align-items: center;
+  /* when we do display to flex the items get stressed out so doing align items center fixes it */
+}
+
+.container ul li img {
+  margin-right: 0.5rem;
+}
+
+.container .avatar {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  /* justify content start keeps items or align items from the start in a line or in a order */
+  padding-top: 1rem;
+}
+
+.container .avatar img {
+  width: 3.5rem;
+  /* making the rounded white frame for the img */
+  border: solid 2px var(--white);
+  border-radius: 50%;
+  /* ..up to.. */
+  margin-right: 1rem;
+}
+
+.container .avatar p span {
+  font-weight: 400;
+  color: var(--white);
+}
+
+.container .avatar p span:hover {
+  color: var(--cyan);
+  cursor: pointer;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+ul {
+  list-style-type: none;
+}
+
+@media (min-width: 500px) {
+  .container {
+    width: 450px;
+    margin: 2rem auto 1rem;
+  }
+}
